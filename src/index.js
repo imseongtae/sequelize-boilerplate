@@ -26,5 +26,32 @@ async function getTasksAsync() {
   }
 }
 
+async function createUser(name) {
+  const user = await db.User.create({ name })
+
+  return user;
+}
+
+async function getUser(name) {
+  const user = await db.User.findOne({ where: { name } });
+  return user;
+}
+
+async function assignTaskToUser(task, user) {
+  await task.setUser(user)
+}
+
+async function listAllUserTasks(user) {
+  tasks = await user.getTasks();
+  tasks.forEach(task => {
+    console.log(task.taskName);
+  });
+}
+
+// createUser('ham1');
+getUser('ham').then(res => {
+  console.log('getUserName: ', res.name);
+})
+
 // getTasksPromise();
 getTasksAsync();
