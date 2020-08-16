@@ -15,6 +15,11 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+    /**
+     * “Tasks” 라는 복수형으로 명시
+     * 이는 Model이 아닌 실제 Table을 참조하고 있기 때문 
+     * Migrations 파일도 같은 문법을 가지기에 혼란이 생길 수 있음
+     */
     return queryInterface.bulkInsert(
       'Tasks',
       [
