@@ -1,18 +1,8 @@
 const path = require('path');
-const storage = path.join(__dirname, '../../../db.sqlite');
 
 module.exports = {
-  development: {
-    dialect: 'sqlite',
-    storage
-  },
-  test: {
-    dialect: 'sqlite',
-    storage: ':memory'
-  },
-  production: {
-    use_env_variable: 'DB_CONNECTION_STRING',
-    dialect: 'mysql',
-    logging: false
-  }
+  'config': path.resolve('src/db/config/config.js'),
+  'models-path': path.resolve('src/db/models'),
+  'seeders-path': path.resolve('src/db/seeders'),
+  'migrations-path': path.resolve('src/db/migrations')
 }
