@@ -7,6 +7,22 @@
 
 ## sequelizerc setting
 
+## sequelizerc
+- 파일 확장자가 없어야 vscode 아이콘 적용을 받음
+
+```
+const path = require('path');
+
+module.exports = {
+  'config': path.resolve('src/db/config/config.js'),
+  'models-path': path.resolve('src/db/models'),
+  'seeders-path': path.resolve('src/db/seeders'),
+  'migrations-path': path.resolve('src/db/migrations')
+}
+```
+
+### config.js
+
 ```js
 const path = require('path');
 const storage = path.join(__dirname, '../../../db.sqlite');
@@ -22,7 +38,7 @@ module.exports = {
   },
   production: {
     use_env_variable: 'DB_CONNECTION_STRING',
-    dialect: 'postgres',
+    dialect: 'mysql',
     logging: false
   }
 };
